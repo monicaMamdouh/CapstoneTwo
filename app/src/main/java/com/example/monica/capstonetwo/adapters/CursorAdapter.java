@@ -1,0 +1,122 @@
+package com.example.monica.capstonetwo.adapters;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.monica.capstonetwo.R;
+import com.example.monica.capstonetwo.dataBase.myContentProvider;
+import com.example.monica.capstonetwo.dataBase.myContract;
+import com.squareup.picasso.Picasso;
+
+/**
+ * Created by monica on 7/14/2017.
+ */
+
+public class CursorAdapter extends RecyclerView.Adapter<CursorAdapter.FavouriteViewHolder> {
+
+    private Context context;
+    private Cursor cursor;
+    int position;
+
+    private FavouriteAdapterClickHandler mClickHandler;
+
+    public CursorAdapter(Context mContext, CursorAdapter.FavouriteAdapterClickHandler onClick) {
+        this.context=mContext;
+        this.mClickHandler=onClick;
+
+    }
+
+    @Override
+    public FavouriteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        int layoutIdForListItem = R.layout.recycle_view_item;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        boolean shouldAttachToParentImmediately = false;
+
+        View view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediately);
+        return new CursorAdapter.FavouriteViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(FavouriteViewHolder holder, int position) {
+
+        cursor.moveToPosition(position);
+        int titleIndex=cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
+        int authorIndex=cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR);
+        String title=cursor.getString(titleIndex);
+        String author=cursor.getString(authorIndex);
+
+        holder.mTitleTextView.setText(title);
+        holder.mAuthorTextView.setText(author);
+        Picasso.with(context).load(R.drawable.reddit).into(holder.mImageView);
+
+        //add tag
+        holder.itemView.setTag(position);
+    }
+
+    @Override
+    public int getItemCount() {
+        if (cursor == null) {
+            return 0;
+        }
+        return cursor.getCount();
+    }
+
+
+    public class FavouriteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+
+        public TextView mTitleTextView;
+        public TextView mAuthorTextView;
+        public ImageView mImageView;
+
+        public FavouriteViewHolder(View view)
+        {
+            super(view);
+            mTitleTextView = (TextView) view.findViewById(R.id.title);
+            mAuthorTextView = (TextView) view.findViewById(R.id.author);
+            mImageView = (ImageView) view.findViewById(R.id.image);
+
+            view.setOnClickListener(this);
+
+
+        }
+
+        @Override
+        public void onClick(View v) {
+
+            position = getAdapterPosition();
+
+            mClickHandler.onClick(position);
+
+        }
+    }
+
+    public interface FavouriteAdapterClickHandler
+    {
+        void onClick(int position);
+    }
+
+    public void setFavData(Cursor mCursor) {
+
+        if (cursor == mCursor)
+        {
+            return;
+        }
+        Cursor temp = mCursor;
+        cursor=mCursor;
+        notifyDataSetChanged();
+
+
+
+    }
+
+
+
+}
