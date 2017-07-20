@@ -7,14 +7,10 @@ import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.RemoteViews;
 
 import com.example.monica.capstonetwo.R;
 import com.example.monica.capstonetwo.activities.FavouriteDetailActivity;
-import com.example.monica.capstonetwo.activities.MainActivity;
 
 /**
  * Implementation of App Widget functionality.

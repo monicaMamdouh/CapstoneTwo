@@ -3,13 +3,11 @@ package com.example.monica.capstonetwo.widget;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.example.monica.capstonetwo.R;
-import com.example.monica.capstonetwo.activities.DetailActivity;
 import com.example.monica.capstonetwo.activities.FavouriteDetailActivity;
 import com.example.monica.capstonetwo.dataBase.myContract;
 

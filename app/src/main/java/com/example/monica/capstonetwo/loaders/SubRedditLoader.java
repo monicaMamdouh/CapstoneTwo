@@ -6,7 +6,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 
-import com.example.monica.capstonetwo.model.Child;
 import com.example.monica.capstonetwo.model.Data_;
 import com.example.monica.capstonetwo.utility.NetworkFunctions;
 
@@ -21,7 +20,6 @@ public class SubRedditLoader implements LoaderManager.LoaderCallbacks<List<Data_
 
     private onRedditDeliver redditDeliver;
     private Context mContext;
-    private List<Child> childList;
     private List<Data_> dataList;
 
 

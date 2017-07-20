@@ -14,14 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.monica.capstonetwo.R;
-import com.example.monica.capstonetwo.activities.DetailActivity;
 import com.example.monica.capstonetwo.activities.FavouriteDetailActivity;
 import com.example.monica.capstonetwo.adapters.CursorAdapter;
-import com.example.monica.capstonetwo.adapters.RedditAdapter;
 import com.example.monica.capstonetwo.loaders.cursorLoader;
-import com.example.monica.capstonetwo.model.Data_;
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.

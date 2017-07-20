@@ -4,18 +4,13 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteFullException;
 import android.net.Uri;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
-import android.transition.Slide;
 import android.transition.Transition;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +19,6 @@ import android.widget.Toast;
 import com.example.monica.capstonetwo.R;
 import com.example.monica.capstonetwo.dataBase.myContract;
 import com.example.monica.capstonetwo.model.Data_;
-import com.example.monica.capstonetwo.widget.listWidgetService;
 import com.example.monica.capstonetwo.widget.monicaWidget;
 import com.squareup.picasso.Picasso;
 
@@ -49,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
 
         titleTextView.setText(data.getTitle());
         authorTextView.setText(data.getAuthor());
-        Picasso.with(getApplicationContext()).load(R.drawable.reddit).into(posterImageView);
+        Picasso.with(getApplicationContext()).load(data.getImage()).placeholder(R.drawable.reddit).into(posterImageView);
 
         floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {

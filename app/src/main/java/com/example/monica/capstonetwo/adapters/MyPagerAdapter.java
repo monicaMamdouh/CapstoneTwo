@@ -33,7 +33,8 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return NUMBERS;
     }
 

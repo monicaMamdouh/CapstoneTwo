@@ -9,12 +9,33 @@ public class Data_  implements Serializable {
 
     private String Title;
     private String Author;
+    private String Image;
+    private String id;
 
     public Data_(){}
 
-    public Data_(String title, String author) {
+    public Data_(String title, String author, String image, String id) {
         Title = title;
         Author = author;
+        Image = image;
+        this.id = id;
+    }
+
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

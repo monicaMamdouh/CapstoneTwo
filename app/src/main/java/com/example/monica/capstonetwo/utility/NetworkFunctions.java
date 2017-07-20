@@ -108,6 +108,8 @@ public class NetworkFunctions {
         final String Children="children";
         final String Author="author";
         final String Title="title";
+        final String Thumbnail="url";
+        final String postID="id";
 
         dataArrayList= new ArrayList<>();
 
@@ -122,7 +124,9 @@ public class NetworkFunctions {
                 JSONObject dataObject=current.getJSONObject(Data);
                 String authorName=dataObject.getString(Author);
                 String TitleJson=dataObject.getString(Title);
-                 Data_ data_=new Data_(TitleJson,authorName);
+                String idJson=dataObject.getString(postID);
+                String imageJson=dataObject.getString(Thumbnail);
+                Data_ data_=new Data_(TitleJson,authorName,imageJson,idJson);
                 dataArrayList.add(data_);
 
             }

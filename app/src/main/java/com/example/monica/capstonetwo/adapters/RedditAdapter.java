@@ -40,14 +40,12 @@ public class RedditAdapter  extends RecyclerView.Adapter<RedditAdapter.RedditAda
 
 
         public TextView mTitleTextView;
-        public TextView mAuthorTextView;
         public ImageView mImageView;
 
 
         public RedditAdapterViewHolder(View view) {
             super(view);
             mTitleTextView = (TextView) view.findViewById(R.id.title);
-            mAuthorTextView = (TextView) view.findViewById(R.id.author);
             mImageView = (ImageView) view.findViewById(R.id.image);
 
             view.setOnClickListener(this);
@@ -77,9 +75,8 @@ public class RedditAdapter  extends RecyclerView.Adapter<RedditAdapter.RedditAda
     public void onBindViewHolder(RedditAdapter.RedditAdapterViewHolder holder, final int position) {
         final Data_ child = mChildren.get(position);
         holder.mTitleTextView.setText(child.getTitle());
-        holder.mAuthorTextView.setText("By "+child.getAuthor());
-        //if (!child.getData().getAuthor().equals(""))
-            Picasso.with(mContext).load(R.drawable.reddit).into(holder.mImageView);
+        Picasso.with(mContext).load(child.getImage()).placeholder(R.drawable.reddit).into(holder.mImageView);
+
     }
 
     @Override

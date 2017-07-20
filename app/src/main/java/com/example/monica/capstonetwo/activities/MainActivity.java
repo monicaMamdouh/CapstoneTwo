@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int[] tabIcons = {
-            R.drawable.ic_heart,
-            R.drawable.ic_clock
+            R.drawable.ic_home_white_24dp,
+            R.drawable.ic_heart
 
     };
 
