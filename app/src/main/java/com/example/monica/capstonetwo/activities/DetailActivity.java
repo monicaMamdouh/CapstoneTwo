@@ -52,6 +52,10 @@ public class DetailActivity extends AppCompatActivity {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(myContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR,data.getAuthor());
                 contentValues.put(myContract.sunRedditEntry.COLUMN_SUBRED_TITLE, data.getTitle());
+                contentValues.put(myContract.sunRedditEntry.COLUMN_SUBRED_ID, data.getId());
+                contentValues.put(myContract.sunRedditEntry.COLUMN_SUBRED_IMAGE, data.getImage());
+
+
 
                 try {
                     Uri uri =getContentResolver().insert(myContract.sunRedditEntry.CONTENT_URI, contentValues);
@@ -63,21 +67,18 @@ public class DetailActivity extends AppCompatActivity {
                     appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds,R.id.list_view);
 
                     if (uri != null) {
-                        Toast.makeText(getApplicationContext(), "movie marked as 'FAVOURITE'", Toast.LENGTH_SHORT).show();
-                    //    floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.correct));
+                        Toast.makeText(getApplicationContext(), "this item marked as 'FAVOURITE'", Toast.LENGTH_SHORT).show();
 
                     }
                 }
                 catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "This Movie is already marked as 'FAVOURITE'", Toast.LENGTH_SHORT).show();
-                   // floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.correct));
+                    Toast.makeText(getApplicationContext(), "This item is already marked as 'FAVOURITE'", Toast.LENGTH_SHORT).show();
 
                 }
 
             }
         });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // Call some material design APIs here
             Explode enterTransition = new Explode();
             Transition transition=enterTransition.setDuration(500);
             getWindow().setEnterTransition(transition);

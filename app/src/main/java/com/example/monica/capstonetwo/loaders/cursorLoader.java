@@ -30,12 +30,12 @@ public class cursorLoader implements LoaderManager.LoaderCallbacks<Cursor> {
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return  new AsyncTaskLoader<Cursor>(mContext) {
-            Cursor mMovieData = null;
+            Cursor mData = null;
 
             @Override
             protected void onStartLoading() {
-                if (mMovieData != null) {
-                    deliverResult(mMovieData);
+                if (mData != null) {
+                    deliverResult(mData);
                 } else {
                     forceLoad();
                 }
@@ -56,7 +56,7 @@ public class cursorLoader implements LoaderManager.LoaderCallbacks<Cursor> {
             }
 
             public void deliverResult(Cursor data) {
-                mMovieData = data;
+                mData = data;
                 super.deliverResult(data);
             }
 

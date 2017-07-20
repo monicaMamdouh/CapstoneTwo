@@ -33,6 +33,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="40px" />
 
+
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

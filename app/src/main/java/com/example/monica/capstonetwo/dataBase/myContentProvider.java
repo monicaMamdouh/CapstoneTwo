@@ -164,7 +164,7 @@ public class myContentProvider extends ContentProvider {
 
         // Notify the resolver of a change and return the number of items deleted
         if (tasksDeleted != 0) {
-            // A movie was deleted, set notification
+
             getContext().getContentResolver().notifyChange(uri, null);
         }
 

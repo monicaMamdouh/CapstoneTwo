@@ -48,13 +48,13 @@ public class CursorAdapter extends RecyclerView.Adapter<CursorAdapter.FavouriteV
 
         cursor.moveToPosition(position);
         int titleIndex=cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
-        int authorIndex=cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR);
+        int imageIndex=cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_IMAGE);
         String title=cursor.getString(titleIndex);
-        String author=cursor.getString(authorIndex);
+        String image=cursor.getString(imageIndex);
 
         holder.mTitleTextView.setText(title);
-        holder.mAuthorTextView.setText(author);
-        Picasso.with(context).load(R.drawable.reddit).into(holder.mImageView);
+        Picasso.with(context).load(image).placeholder(R.drawable.reddit).into(holder.mImageView);
+
 
         //add tag
         holder.itemView.setTag(position);

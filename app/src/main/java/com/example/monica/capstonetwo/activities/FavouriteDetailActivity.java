@@ -26,7 +26,6 @@ import com.squareup.picasso.Picasso;
      private TextView titleTextView;
      private ImageView posterImageView;
      private TextView authorTextView;
-     private FloatingActionButton floatingActionButton;
      private int cursorPosition;
      private Cursor cursor;
 
@@ -72,14 +71,13 @@ import com.squareup.picasso.Picasso;
          cursor.moveToPosition(cursorPosition);
          int titleIndex = cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
          int authorIndex = cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR);
-
+         int imageIndex = cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_IMAGE);
 
          String title = cursor.getString(titleIndex);
          String author= cursor.getString(authorIndex);
+         String image= cursor.getString(imageIndex);
 
-
-         Picasso.with(this).load(R.drawable.reddit).into(posterImageView);
-       //  Picasso.with(getActivity()).load("https://image.tmdb.org/t/p/w320/" + poster).placeholder(R.drawable.error).error(R.drawable.icon).noFade().into(mPosterImageView);
+         Picasso.with(getApplicationContext()).load(image).placeholder(R.drawable.reddit).into(posterImageView);
          titleTextView.setText(title);
          authorTextView.setText(author);
 

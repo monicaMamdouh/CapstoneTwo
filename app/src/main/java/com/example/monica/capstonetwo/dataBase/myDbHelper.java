@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class myDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "sub.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 10;
 
     public myDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -23,6 +23,8 @@ public class myDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_SUBRED_TABLE = "CREATE TABLE " + myContract.sunRedditEntry.TABLE_NAME + " (" +
                 myContract.sunRedditEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 myContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR+ " TEXT , " +
+                myContract.sunRedditEntry.COLUMN_SUBRED_IMAGE+ " TEXT , " +
+                myContract.sunRedditEntry.COLUMN_SUBRED_ID+ " TEXT UNIQUE , " +
                 myContract.sunRedditEntry.COLUMN_SUBRED_TITLE+ " TEXT )";
 
         sqLiteDatabase.execSQL(SQL_CREATE_SUBRED_TABLE);

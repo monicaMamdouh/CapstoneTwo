@@ -26,6 +26,9 @@ public class myContract {
         public static final String TABLE_NAME = "subRed";
         public static final String COLUMN_SUBRED_AUTHOR = "author";
         public static final String COLUMN_SUBRED_TITLE = "title";
+        public static final String COLUMN_SUBRED_IMAGE = "image";
+        public static final String COLUMN_SUBRED_ID= "id";
+
 
 
     }
