@@ -195,3 +195,5 @@ public class HomeFragment  extends Fragment implements RedditAdapter.RedditAdapt
 
     }
 }
+
+
