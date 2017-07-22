@@ -282,9 +282,7 @@ public class LoginActivity extends AppCompatActivity implements
             Intent i=new Intent(getApplicationContext(),MainActivity.class);
             startActivity(i);
 
-        } else {
-
-        }
+        } 
 
     }
 

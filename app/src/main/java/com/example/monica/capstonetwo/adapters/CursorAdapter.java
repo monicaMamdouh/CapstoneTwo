@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.monica.capstonetwo.R;
-import com.example.monica.capstonetwo.dataBase.myContract;
+import com.example.monica.capstonetwo.dataBase.MyContract;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -46,8 +46,8 @@ public class CursorAdapter extends RecyclerView.Adapter<CursorAdapter.FavouriteV
     public void onBindViewHolder(FavouriteViewHolder holder, int position) {
 
         cursor.moveToPosition(position);
-        int titleIndex=cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
-        int imageIndex=cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_IMAGE);
+        int titleIndex=cursor.getColumnIndex(MyContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
+        int imageIndex=cursor.getColumnIndex(MyContract.sunRedditEntry.COLUMN_SUBRED_IMAGE);
         String title=cursor.getString(titleIndex);
         String image=cursor.getString(imageIndex);
 

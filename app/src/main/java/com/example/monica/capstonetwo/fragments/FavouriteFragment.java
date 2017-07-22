@@ -16,12 +16,12 @@ import android.view.ViewGroup;
 import com.example.monica.capstonetwo.R;
 import com.example.monica.capstonetwo.activities.FavouriteDetailActivity;
 import com.example.monica.capstonetwo.adapters.CursorAdapter;
-import com.example.monica.capstonetwo.loaders.cursorLoader;
+import com.example.monica.capstonetwo.loaders.CursorLoader;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FavouriteFragment extends Fragment  implements CursorAdapter.FavouriteAdapterClickHandler,cursorLoader.onFavDeliver {
+public class FavouriteFragment extends Fragment  implements CursorAdapter.FavouriteAdapterClickHandler,CursorLoader.onFavDeliver {
 
 
     RecyclerView mRecyclerView;
@@ -58,7 +58,7 @@ public class FavouriteFragment extends Fragment  implements CursorAdapter.Favour
         mRecyclerView.setAdapter(favouriteAdapter);
         favouriteAdapter.notifyDataSetChanged();
 
-        getLoaderManager().initLoader(LOADER_ID, null, new cursorLoader(this, getActivity())).forceLoad();
+        getLoaderManager().initLoader(LOADER_ID, null, new CursorLoader(this, getActivity())).forceLoad();
         return rootView;
     }
 
@@ -66,7 +66,7 @@ public class FavouriteFragment extends Fragment  implements CursorAdapter.Favour
     @Override
     public void onStart() {
         super.onStart();
-        getLoaderManager().restartLoader(LOADER_ID, null, new cursorLoader(this, getActivity())).forceLoad();
+        getLoaderManager().restartLoader(LOADER_ID, null, new CursorLoader(this, getActivity())).forceLoad();
 
 
     }

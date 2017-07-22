@@ -24,12 +24,12 @@
         <!-- My ContentProvider -->
         <!-- Our ContentProvider -->
         <provider
-            android:name=".dataBase.myContentProvider"
+            android:name=".dataBase.MyContentProvider"
             android:authorities="com.example.monica.capstonetwo"
             android:exported="true" />
 
         <receiver
-            android:name=".widget.monicaWidget"
+            android:name=".widget.MonicaWidget"
             android:icon="@drawable/icon"
             android:label="Reddit">
             <intent-filter>
@@ -42,7 +42,7 @@
         </receiver>
 
         <service
-            android:name=".widget.listWidgetService"
+            android:name=".widget.ListWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <activity android:name=".activities.MainActivity"></activity>

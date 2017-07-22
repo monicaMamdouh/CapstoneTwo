@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.monica.capstonetwo.R;
-import com.example.monica.capstonetwo.dataBase.myContract;
+import com.example.monica.capstonetwo.dataBase.MyContract;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -56,7 +56,7 @@ import com.squareup.picasso.Picasso;
 
 
          try {
-             cursor = getContentResolver().query(myContract.sunRedditEntry.CONTENT_URI,
+             cursor = getContentResolver().query(MyContract.sunRedditEntry.CONTENT_URI,
                      null,
                      null,
                      null,
@@ -68,9 +68,9 @@ import com.squareup.picasso.Picasso;
 
 
          cursor.moveToPosition(cursorPosition);
-         int titleIndex = cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
-         int authorIndex = cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR);
-         int imageIndex = cursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_IMAGE);
+         int titleIndex = cursor.getColumnIndex(MyContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
+         int authorIndex = cursor.getColumnIndex(MyContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR);
+         int imageIndex = cursor.getColumnIndex(MyContract.sunRedditEntry.COLUMN_SUBRED_IMAGE);
 
          String title = cursor.getString(titleIndex);
          String author= cursor.getString(authorIndex);

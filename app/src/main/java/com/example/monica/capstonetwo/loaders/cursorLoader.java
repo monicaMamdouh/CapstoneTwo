@@ -7,19 +7,19 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 
-import com.example.monica.capstonetwo.dataBase.myContract;
+import com.example.monica.capstonetwo.dataBase.MyContract;
 
 /**
  * Created by monica on 7/14/2017.
  */
 
-public class cursorLoader implements LoaderManager.LoaderCallbacks<Cursor> {
+public class CursorLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private onFavDeliver onFavDeliver;
     private Context mContext;
 
 
-    public cursorLoader(onFavDeliver Deliver, Context context) {
+    public CursorLoader(onFavDeliver Deliver, Context context) {
 
 
         this.onFavDeliver= Deliver;
@@ -44,7 +44,7 @@ public class cursorLoader implements LoaderManager.LoaderCallbacks<Cursor> {
             @Override
             public Cursor loadInBackground() {
                 try {
-                    return mContext.getContentResolver().query(myContract.sunRedditEntry.CONTENT_URI,
+                    return mContext.getContentResolver().query(MyContract.sunRedditEntry.CONTENT_URI,
                             null,
                             null,
                             null,

@@ -3,9 +3,9 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'monica  capstone'
+            keyAlias 'redditStore'
             keyPassword 'moka@1993'
-            storeFile file('E:/android_nanodegree/Projects/capstoneTwo/CapstoneTwo/app/keyStore.jks')
+            storeFile file('/keyStore/redditStore.jks')
             storePassword 'moka@1993'
         }
     }

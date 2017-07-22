@@ -9,14 +9,14 @@ import android.widget.RemoteViewsService;
 
 import com.example.monica.capstonetwo.R;
 import com.example.monica.capstonetwo.activities.FavouriteDetailActivity;
-import com.example.monica.capstonetwo.dataBase.myContract;
+import com.example.monica.capstonetwo.dataBase.MyContract;
 
 
 /**
  * Created by monica on 7/15/2017.
  */
 
-public class listWidgetService  extends  RemoteViewsService{
+public class ListWidgetService  extends  RemoteViewsService{
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
@@ -43,7 +43,7 @@ class ListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
         public void onDataSetChanged() {
             if (mCursor != null) mCursor.close();
             mCursor = mContext.getContentResolver().query(
-                    myContract.sunRedditEntry.CONTENT_URI,
+                    MyContract.sunRedditEntry.CONTENT_URI,
                     null,
                     null,
                     null,
@@ -69,8 +69,8 @@ class ListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
             if (mCursor == null || mCursor.getCount() == 0)
                 return null;
             mCursor.moveToPosition(position);
-            int authorIndex = mCursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR);
-            int titleIndex = mCursor.getColumnIndex(myContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
+            int authorIndex = mCursor.getColumnIndex(MyContract.sunRedditEntry.COLUMN_SUBRED_AUTHOR);
+            int titleIndex = mCursor.getColumnIndex(MyContract.sunRedditEntry.COLUMN_SUBRED_TITLE);
 
 
             String author=mCursor.getString(authorIndex);

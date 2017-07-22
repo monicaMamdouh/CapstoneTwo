@@ -10,16 +10,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import com.example.monica.capstonetwo.loaders.SubRedditLoader;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * Created by monica on 7/14/2017.
  */
 
-public class myContentProvider extends ContentProvider {
+public class MyContentProvider extends ContentProvider {
 
 
 
@@ -33,20 +28,20 @@ public class myContentProvider extends ContentProvider {
 
         UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
-        uriMatcher.addURI(myContract.AUTHORITY,myContract.PATH_SUBRED, SUBRED);
-        uriMatcher.addURI(myContract.AUTHORITY, myContract.PATH_SUBRED + "/#", SUBRED_WITH_ID);
+        uriMatcher.addURI(MyContract.AUTHORITY,MyContract.PATH_SUBRED, SUBRED);
+        uriMatcher.addURI(MyContract.AUTHORITY, MyContract.PATH_SUBRED + "/#", SUBRED_WITH_ID);
 
         return uriMatcher;
     }
 
-    private myDbHelper mDbHelper;
+    private MyDbHelper mDbHelper;
 
 
     @Override
     public boolean onCreate() {
 
         Context context = getContext();
-        mDbHelper = new myDbHelper(context);
+        mDbHelper = new MyDbHelper(context);
         return true;
     }
 
@@ -60,9 +55,9 @@ public class myContentProvider extends ContentProvider {
         switch (match) {
             case SUBRED:
 
-                long id = db.insertWithOnConflict(myContract.sunRedditEntry.TABLE_NAME, null, values,SQLiteDatabase.CONFLICT_IGNORE);
+                long id = db.insertWithOnConflict(MyContract.sunRedditEntry.TABLE_NAME, null, values,SQLiteDatabase.CONFLICT_IGNORE);
                 if ( id > 0 ) {
-                    returnUri = ContentUris.withAppendedId(myContract.sunRedditEntry.CONTENT_URI, id);
+                    returnUri = ContentUris.withAppendedId(MyContract.sunRedditEntry.CONTENT_URI, id);
                 } else {
                     throw new android.database.SQLException("Failed to insert row into " + uri);
                 }
@@ -90,7 +85,7 @@ public class myContentProvider extends ContentProvider {
                 try {
                     for (ContentValues value : values) {
 
-                        long _id = db.insert(myContract.sunRedditEntry.TABLE_NAME, null, value);
+                        long _id = db.insert(MyContract.sunRedditEntry.TABLE_NAME, null, value);
                         if (_id != -1) {
                             rowsInserted++;
                         }
@@ -125,7 +120,7 @@ public class myContentProvider extends ContentProvider {
         // Query for the tasks directory and write a default case
         switch (match) {
             case SUBRED:
-                retCursor =  db.query(myContract.sunRedditEntry.TABLE_NAME,
+                retCursor =  db.query(MyContract.sunRedditEntry.TABLE_NAME,
                         projection,
                         selection,
                         selectionArgs,
@@ -156,7 +151,7 @@ public class myContentProvider extends ContentProvider {
         switch (match) {
             case SUBRED_WITH_ID:
                 String id = uri.getPathSegments().get(1);
-                tasksDeleted = db.delete(myContract.sunRedditEntry.TABLE_NAME, "_id=?", new String[]{id});
+                tasksDeleted = db.delete(MyContract.sunRedditEntry.TABLE_NAME, "_id=?", new String[]{id});
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);

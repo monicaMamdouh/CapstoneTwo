@@ -15,9 +15,9 @@ import com.example.monica.capstonetwo.activities.FavouriteDetailActivity;
 /**
  * Implementation of App Widget functionality.
  */
-public class monicaWidget extends AppWidgetProvider {
+public class MonicaWidget extends AppWidgetProvider {
 
-    public static final String LOG=monicaWidget.class.getName();
+    public static final String LOG=MonicaWidget.class.getName();
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 
@@ -32,7 +32,7 @@ public class monicaWidget extends AppWidgetProvider {
 
             // provide the views for this collection.
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_list_view);
-            Intent intent = new Intent(context, listWidgetService.class);
+            Intent intent = new Intent(context, ListWidgetService.class);
             views.setRemoteAdapter(appWidgetIds[i],R.id.list_view, intent);
 
             // Set the PlantDetailActivity intent to launch when clicked
