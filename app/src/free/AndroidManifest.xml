@@ -30,7 +30,7 @@
         <!-- Our ContentProvider -->
         <provider
             android:name=".dataBase.myContentProvider"
-            android:authorities="com.example.monica.capstonetwo"
+            android:authorities="com.example.monica.capstonetwo.free"
             android:exported="true" />
 
         <receiver

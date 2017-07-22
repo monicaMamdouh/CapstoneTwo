@@ -18,6 +18,7 @@
             <ImageView
                 android:id="@+id/image"
                 android:transitionName="profile"
+                android:contentDescription="@string/label"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:scaleType="fitCenter" />

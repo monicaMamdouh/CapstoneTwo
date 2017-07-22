@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'monica  capstone'
+            keyPassword 'moka@1993'
+            storeFile file('E:/android_nanodegree/Projects/capstoneTwo/CapstoneTwo/app/keyStore.jks')
+            storePassword 'moka@1993'
+        }
+    }
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -15,8 +23,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
-
     }
     productFlavors {
         free {
@@ -26,7 +34,6 @@ android {
             applicationId 'com.example.monica.capstonetwo.paid'
         }
     }
-
 }
 
 dependencies {

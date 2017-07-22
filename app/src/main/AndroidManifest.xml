@@ -21,12 +21,7 @@
         <activity android:name=".activities.DetailActivity" />
         <activity android:name=".activities.FavouriteDetailActivity" />
 
-        <!-- My ContentProvider -->
-        <!-- Our ContentProvider -->
-        <provider
-            android:name=".dataBase.myContentProvider"
-            android:authorities="com.example.monica.capstonetwo"
-            android:exported="true" />
+
 
         <receiver
             android:name=".widget.monicaWidget"

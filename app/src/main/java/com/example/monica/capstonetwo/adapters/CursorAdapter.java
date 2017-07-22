@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.monica.capstonetwo.R;
-import com.example.monica.capstonetwo.dataBase.myContentProvider;
 import com.example.monica.capstonetwo.dataBase.myContract;
 import com.squareup.picasso.Picasso;
 
